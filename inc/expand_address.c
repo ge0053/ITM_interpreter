@@ -1,6 +1,7 @@
 #include "expand_address.h"
+#include <stdio.h>
 int expand_address(uint16_t data){
-    
-    return (0x08000000 |(__builtin_bswap16(data) <<2));
+    //printf("data: %x  ", data);
+    return (0x08000000 |(data <<2));
 }
 

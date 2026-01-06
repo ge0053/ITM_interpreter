@@ -5,11 +5,11 @@ void print_msg(uint32_t data, int length, int mode){
     {
     case MODE_EXPAND:
         if (length ==2){
-        printf("%x\n",expand_address(data));
+        printf("%x\n",expand_address(__builtin_bswap16(data)));
         
         }else if(length==4){
-            printf("%x\n",expand_address(data & 0xffff));
-            printf("%x\n\n",expand_address((data>> 16)&0xffff));
+            printf("%x\n",expand_address(__builtin_bswap32(data) & 0x7fff));
+            printf("%x\n\n",expand_address((__builtin_bswap32(data)>> (16-1)) & 0x7fff));
             
             
         }
