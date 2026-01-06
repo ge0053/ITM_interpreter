@@ -1,0 +1,29 @@
+{
+	"version": "2.0.0",
+
+
+    "tasks": [
+        {
+            "label": "build",
+            "type": "shell",
+            "command": "cmake --build build --config Release ",
+            "options": {
+                "cwd": "${workspaceFolder}"
+            },
+            "problemMatcher": ["$gcc"],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            }
+        },
+        {
+            "label": "configure",
+            "type": "shell",
+            "command": "cmake -S . -B build -DCMAKE_C_COMPILER=$(whereis gcc)",
+            "options": {
+                "cwd": "${workspaceFolder}"
+            }
+        }
+    ]
+
+}
