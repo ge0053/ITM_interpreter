@@ -8,25 +8,29 @@
 #include "print_msg.h"
 
 int main(int argc, char *argv[]) {
-    uint32_t message;
-    if (argc != 3) {
+    uint32_t message=0;
+    if (!(argc == 3 || argc == 4)) {
         fprintf(stderr, "Usage: %s <binary_file> <patthern> <mode>\n", argv[0]);
-        fprintf(stderr,"Mode: expand_address <e>, none <n>(default)");
+        fprintf(stderr,"Mode: expand_address <e>, none <n>(default) %d",argc);
         return 1;
     }
     const char pattern=atoi(argv[2]);
     int mode =0;
-    switch ((char)argv[3])
+    printf("fdsa");
+    //printf("%c",argv[3][0]);
+    switch ((char)argv[3][0])
     {
     case 'e':
         mode=MODE_EXPAND;
+        printf("mode");
         break;
     
     default:
         mode=MODE_DEFAULT;
+        printf("mode:default");
         break;
     }
-    printf("pattern %i",pattern);
+    //printf("pattern %i",pattern);
     const char *filename = argv[1];
     FILE *fp = fopen(filename, "rb");
     if (!fp) {
@@ -54,6 +58,7 @@ int main(int argc, char *argv[]) {
         uint8_t current_byte = (uint8_t)c;
         if (data_size == 0) {
             header.u8 = current_byte;
+            
             print_msg(message,current_data_size,mode);
             data_size=header.fields.data_size;
             current_data_size=header.fields.data_size;

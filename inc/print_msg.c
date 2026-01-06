@@ -5,7 +5,8 @@ void print_msg(uint32_t data, int length, int mode){
     {
     case MODE_EXPAND:
         if (length ==2){
-        printf("%x",expand_address(data));
+        printf("%x\n",expand_address(data));
+        
         }
         break;
     default:
