@@ -7,6 +7,11 @@ void print_msg(uint32_t data, int length, int mode){
         if (length ==2){
         printf("%x\n",expand_address(data));
         
+        }else if(length==4){
+            printf("%x\n",expand_address(data & 0xffff));
+            printf("%x\n\n",expand_address((data>> 16)&0xffff));
+            
+            
         }
         break;
     default:

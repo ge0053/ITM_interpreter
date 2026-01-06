@@ -58,19 +58,30 @@ int main(int argc, char *argv[]) {
         uint8_t current_byte = (uint8_t)c;
         if (data_size == 0) {
             header.u8 = current_byte;
-            
+            if (header.fields.source_adress == pattern) {
             print_msg(message,current_data_size,mode);
-            data_size=header.fields.data_size;
-            current_data_size=header.fields.data_size;
-            
+            }
+            switch (header.fields.data_size)
+            {
+            case 1:
+                data_size=1;
+                break;
+            case 2:
+                data_size=2;
+                break;
+            case 3:
+                data_size=4;
+                break;
+            default:
+                continue; //not valid
+            }
+            current_data_size=data_size;
             message=0;
         } else {
-            if (header.fields.source_adress == pattern) {
+            
                 message=(message<<8)|current_byte;
-                //printf("%c", current_byte);
-                //fflush(stdout);
                 
-            }
+            
             data_size--;           
         }
 
