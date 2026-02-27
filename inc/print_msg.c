@@ -15,9 +15,9 @@ void print_msg(uint32_t data, int length, int mode){
         }
         break;
     default:
-     for (int i=0; i<length;i++){
+	for (int i=0; i<length;i++){
         char character=data >>(8*i);
-        printf("%c",character);
+        printf("%c",character & 0xff);
      }
         break;
     }

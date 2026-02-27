@@ -1,6 +1,11 @@
 
 cmake_minimum_required(VERSION 3.10)
-project(stream_inotify C)
+project(ITM_interpret C)
+
+
+
+
+
 
 # Set C standard
 set(CMAKE_C_STANDARD 11)
@@ -16,11 +21,10 @@ include_directories(
 ${CMAKE_SOURCE_DIR}/inc/
 )
 
-# Add executable
-add_executable(stream_inotify ${C_SRC})
+add_executable(ITM_interpret ${C_SRC})
 
-# Extra warnings for safety
-target_compile_options(stream_inotify PRIVATE -Wall -Wextra -g -pedantic)
+target_compile_options(ITM_interpret PRIVATE -Wall -Wextra -g -pedantic)
 
-# If you want to enable optimization in Release mode
+install(TARGETS ITM_interpret RUNTIME DESTINATION bin)
+
 set(CMAKE_BUILD_TYPE Release)
