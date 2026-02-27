@@ -1,6 +1,0 @@
-{
-  "elfOverlay.elfFile": "build/stream_inotify",
-  "elfOverlay.mode": "gutter",
-  "elfOverlay.nm": "nm",
-
-}
