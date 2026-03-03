@@ -20,6 +20,7 @@ void print_msg(uint32_t data, int length, int mode){
 		printf("%02x",data_byte &0xff);
 	}
 	printf("\n");
+	break;
     default:
 	for (int i=0; i<length;i++){
         char character=data >>(8*i);
