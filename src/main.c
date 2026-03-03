@@ -24,7 +24,9 @@ int main(int argc, char *argv[]) {
     case 'e':
       mode = MODE_EXPAND;
       break;
-
+    case 'x':
+      mode=MODE_HEX;
+      break;
     default:
       mode = MODE_DEFAULT;
       break;

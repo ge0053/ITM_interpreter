@@ -5,6 +5,7 @@
 
 enum Mode {
     MODE_DEFAULT,
-    MODE_EXPAND
+    MODE_EXPAND,
+    MODE_HEX
 };
 extern void print_msg(uint32_t data, int length, int mode);
